@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from schemas import patientSchema , dailytrackSchema
 app = FastAPI()
  
 #creating a route 
@@ -18,11 +18,13 @@ def get_patient():
 
 #posting a patient
 @app.post('/patientform')
-def create_patient():
+def create_patient(patient : patientSchema):
+    print(patient)
     return {"message": "patient created succesfully"}
 #posting dailytrack
 @app.post('/dailytracks')
-def create_patient():
+def create_patient(dailytrack : dailytrackSchema):
+    print(dailytrack)
     return {"message": "daily track submitted succesfully"}
 
 #updating a patient
