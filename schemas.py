@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 #what the app should accept
 
-class patientSchema(BaseModel):
+class PatientSchema(BaseModel):
     name:str
     phone:int
     age:int
