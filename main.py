@@ -44,6 +44,7 @@ def create_patient(patient : PatientSchema , db:Session = Depends(get_db)):
     return {"message": "patient created succesfully", "patient":new_patient}
 
 #posting dailytrack
+#make sure that the patient exist so that the dailytrack is added if patient does not exist then dont post the dailytrack
 @app.post('/dailytracks')
 def create_daily_track(dailytrack: dailytrackSchema, db: Session = Depends(get_db)):
     # Checking if the patient with the given phone number exists
@@ -51,8 +52,10 @@ def create_daily_track(dailytrack: dailytrackSchema, db: Session = Depends(get_d
     #adding the dailytrack if the patient exists
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
-
+    
+    #we are now telling ouur program that the patient_id foreign key should be assigned the patient.id
     new_daily_track = DailyTrack(**dailytrack.model_dump(), patient_id=patient.id)
+
     db.add(new_daily_track)
     db.commit()
     db.refresh(new_daily_track)
