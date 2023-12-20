@@ -1,1 +1,13 @@
-Generic single-database configuration.
+# Generic single-database configuration.
+
+# meeting requirements explanation 
+
+# 1. i  used a fast appi to create the server 
+# 2. used sqlalchemy to communicate with server 
+# 3. two models -- i used patient and Dailytrack
+# 4. Three Crud operations .. i used the create(post), read(get) and the delete(delete) 
+# 5. i used react for my front end as required 
+# 6. i used oop design patterns  
+# 7. one to many relationship -- i made it happen by enhancing that one patient can have multiple dailytracks
+
+# link to frontend -- `https://github.com/mbari60/health-app-pro-frontend`
