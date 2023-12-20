@@ -81,7 +81,7 @@ def delete_patient(phone: int, db: Session = Depends(get_db)):
     
     #deleting associated dailytack of the patient
     db.query(DailyTrack).filter(DailyTrack.patient_id == patient.id).delete()
-
+    
     db.delete(patient)
     db.commit()
     
